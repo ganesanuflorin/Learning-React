@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { IArticle } from '../components/Article';
 
 function Details() {
-  let { id } = useParams<{ id: string }>();
+  let { id } = useParams();
   const [article, setArticle] = useState({} as IArticle);
   const [firstContent, setFirstContent] = useState('' as string);
   const [secondContent, setSecondContent] = useState('' as string);
@@ -38,7 +38,8 @@ function Details() {
 
   }
 
-  useEffect(() => getDataFromServer(id), [id]);
+  useEffect(() => { if (id != null)
+     getDataFromServer(id)}, [id]);
 
   return (
     <div>
