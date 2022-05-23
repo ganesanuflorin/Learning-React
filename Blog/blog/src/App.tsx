@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
 import Menu from './components/Menu';
@@ -13,12 +13,10 @@ function App() {
     <div className="container">
       <Menu/>
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+        <Routes>
+          <Route path="/" element= {<Home />} />
           <Route path="/details/:id" children={<Details />} />
-        </Switch>
+        </Routes>
       </Router>
     </div>
   );
